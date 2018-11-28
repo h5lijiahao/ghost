@@ -1,0 +1,35 @@
+/*=======reset css========*/
+body,div,h1,h2,h3,h4,h5,h6,input,p,ul,ol,li{
+  margin:0;padding:0;
+}
+ul{
+  list-style:none;
+}
+a,a:hover{
+  text-decoration:none;color:#222;
+}
+body{
+  font-size:16px;color:#333;
+  font-family:"microsoft yahei",Arial,sans-serif;
+  background:#efefef;
+  
+}
+img{
+  display:block;width:100%;
+}
+
+/*=======common css========*/
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
+.clearFix:after{
+  content:'';
+  display:table;
+  clear:both;
+}
+[v-clock]{
+  display:none;
+}
