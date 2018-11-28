@@ -53,10 +53,10 @@ var app = new Vue({
     },
     handleScroll(){
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
-      let pHeight = document.documentElement.scrollHeight;//this.$refs.page.offsetHeight
+      let pHeight = document.documentElement.scrollHeight || this.$refs.page.offsetHeight
       let viewHeight = document.documentElement.clientHeight || document.body.clientHeight
       //console.log(pHeight,viewHeight)
-      if(viewHeight+scrollTop >= pHeight ){
+      if(pHeight-viewHeight-scrollTop <= 0 ){
         this.loadMore()
       }
     }
