@@ -48,15 +48,15 @@ var app = new Vue({
             for(let i=0;i<moreData.length;i++){
               this.list.push(moreData[i])
             }
-            console.log(this.list)
+            //console.log(this.list)
         })
     },
     handleScroll(){
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
-      let pHeight = this.$refs.page.offsetHeight
+      let pHeight = document.documentElement.scrollHeight;//this.$refs.page.offsetHeight
       let viewHeight = document.documentElement.clientHeight || document.body.clientHeight
-      console.log(pHeight,viewHeight)
-      if(pHeight-viewHeight-scrollTop == 0 ){
+      //console.log(pHeight,viewHeight)
+      if(viewHeight+scrollTop >= pHeight ){
         this.loadMore()
       }
     }
