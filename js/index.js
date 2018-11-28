@@ -10,7 +10,7 @@ var app = new Vue({
   },
   mounted(){
     if(this.list == ''){
-      let url="http://route.showapi.com/955-1?showapi_appid=80127&showapi_sign=0cc85f1b0d304a33926e01e888949822&type=dp&page="
+      let url="https://route.showapi.com/955-1?showapi_appid=80127&showapi_sign=0cc85f1b0d304a33926e01e888949822&type=dp&page="
         + this.page
       this.$http.get(url).then(result => {
         this.list = result.body.showapi_res_body.pagebean.contentlist
@@ -34,14 +34,14 @@ var app = new Vue({
       });
       this.isShow = !this.isShow
       //console.log(this.id)
-      let url = "http://route.showapi.com/955-2?showapi_appid=80127&showapi_sign=0cc85f1b0d304a33926e01e888949822&id="
+      let url = "https://route.showapi.com/955-2?showapi_appid=80127&showapi_sign=0cc85f1b0d304a33926e01e888949822&id="
        + this.id
       this.$http.get(url).then(result => {
         this.text = result.body.showapi_res_body.text
       })
     },
     loadMore(){
-        let url="http://route.showapi.com/955-1?showapi_appid=80127&showapi_sign=0cc85f1b0d304a33926e01e888949822&type=dp&page="
+        let url="https://route.showapi.com/955-1?showapi_appid=80127&showapi_sign=0cc85f1b0d304a33926e01e888949822&type=dp&page="
           + (++this.page)
         this.$http.get(url).then(result => {
             var moreData = result.body.showapi_res_body.pagebean.contentlist
