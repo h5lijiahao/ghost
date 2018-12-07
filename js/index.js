@@ -51,6 +51,7 @@ var app = new Vue({
             for(let i=0;i<moreData.length;i++){
               this.list.push(moreData[i])
             }
+            window.data = this.list
             //console.log(this.list)
         })
     },
