@@ -8,12 +8,15 @@ var app = new Vue({
     isShow:false,
     list:[],
   },
-  mounted(){
-    if(this.list == ''){
+  mounted(callback){
+    if(window.data){
+      callback && callback(window.data)
+    }else{
       let url="https://route.showapi.com/955-1?showapi_appid=80127&showapi_sign=0cc85f1b0d304a33926e01e888949822&type=dp&page="
         + this.page
       this.$http.get(url).then(result => {
         this.list = result.body.showapi_res_body.pagebean.contentlist
+        window.data = this.list
       })
     }
     window.addEventListener('scroll',this.handleScroll)
@@ -52,11 +55,11 @@ var app = new Vue({
         })
     },
     handleScroll(){
-      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
-      let pHeight = document.documentElement.scrollHeight || this.$refs.page.offsetHeight
-      let viewHeight = document.documentElement.clientHeight || document.body.clientHeight
+      let scrollTop = document.scrollingElement.scrollTop
+      let pHeight = document.scrollingElement.scrollHeight
+      let viewHeight = window.innerHeight
       //console.log(pHeight,viewHeight)
-      if(pHeight-viewHeight-scrollTop == 50 ){
+      if(pHeight-scrollTop === viewHeight ){
         this.loadMore()
       }
     }
